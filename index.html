@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center current-qty" value="1">
+                           <button class="btn btn-default"><i class="fas fa-minus decreaseQty"></i></button>
+                           <input type="text" class="form-control text-center currentQty" value="1">
                            <button class="btn btn-default"><i class="fas fa-plus increaseQty"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$<span id="itemPrice">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -43,8 +43,8 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center current-qty" value="1">
+                           <button class="btn btn-default"><i class="fas fa-minus decreaseQty"></i></button>
+                           <input type="text" class="form-control text-center currentQty" value="1">
                            <button class="btn btn-default"><i class="fas fa-plus increaseQty"></i></button>
 
                         </div>
@@ -80,15 +80,40 @@
 
    <script>
       //Increase Quantity
-      var increaseQty = document.getElementsByClassName('increaseQty');
-      for (let i  = 0; i < increaseQty.length; i++) {
-         increaseQty[i].addEventListener('click', function() {
-            console.log("Clicked Plus Button.");
+      var increaseQty = document.getElementsByClassName('increaseQty')[0];
+         increaseQty.addEventListener('click', function() {
+            let currentQty = document.getElementsByClassName('currentQty')[0].value;
+            let currentQtyNumber = parseInt(currentQty);
+            let totalQty = currentQtyNumber + 1;
+            document.getElementsByClassName('currentQty')[0].value = totalQty;
          })
-      }
 
-      //Cart item quantity
-      document.getElementsByClassName('current-qty');
+      var increaseQty = document.getElementsByClassName('increaseQty')[1];
+         increaseQty.addEventListener('click', function() {
+            let currentQty = document.getElementsByClassName('currentQty')[1].value;
+            let currentQtyNumber = parseInt(currentQty);
+            let totalQty = currentQtyNumber + 1;
+            document.getElementsByClassName('currentQty')[1].value = totalQty;
+         })
+
+      //Decrease Quantity
+      var decreaseQty = document.getElementsByClassName('decreaseQty')[0];
+      decreaseQty.addEventListener('click', function() {
+            let currentQty = document.getElementsByClassName('currentQty')[0].value;
+            let currentQtyNumber = parseInt(currentQty);
+            let totalQty = currentQtyNumber - 1;
+            document.getElementsByClassName('currentQty')[0].value = totalQty;
+         })
+
+      var decreaseQty = document.getElementsByClassName('decreaseQty')[1];
+      decreaseQty.addEventListener('click', function() {
+            let currentQty = document.getElementsByClassName('currentQty')[1].value;
+            let currentQtyNumber = parseInt(currentQty);
+            let totalQty = currentQtyNumber - 1;
+            document.getElementsByClassName('currentQty')[1].value = totalQty;
+         })
+
+      
    </script>
 </body>
 
